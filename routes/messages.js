@@ -1,10 +1,16 @@
 const {Router} = require("express")
 const router = Router()
-const {rootMessages, hiMessages, byeMessages, postMessages, putMessages, deleteMessages} = require ('../controllers/messages') //Ruta
-    router.get('/', rootMessages)
-    router.get('/hi', hiMessages)
-    router.get('/bye', byeMessages)
-    router.post('/', postMessages)
-    router.put('/', putMessages)
-    router.delete('/', deleteMessages) //End-Point
-module.exports = router //Exportar programa
+const {
+    rootMessage,
+    hiMessage,
+    byeMessage,
+    postMessage,
+    putMessage,
+    deleteMessage} = require('../controllers/messages')
+router.get("/", rootMessage)
+router.get("/hi/:name", hiMessage)
+router.get("/bye", byeMessage)
+router.post('/', postMessage)
+router.put('/', putMessage)
+router.delete('/', deleteMessage)
+module.exports = router
