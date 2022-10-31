@@ -1,18 +1,22 @@
 const express = require('express')
 const messagesRouter = require('./routes/messages')
-const cors = require("cors") //Nuevo
+const usuariosRouter = require('./routes/usuarios')
+const cors = require("cors")
 
 class Server{
     constructor(){
         this.app = express()
         this.paths = {
-            messages: "/api/v1/messages"
+            messages: "/api/v1/messages",
+            usuarios: "/api/v1/usuarios"
         }
         this.middlewares()
         this.routes()
     }
     routes(){
         this.app.use(this.paths.messages, messagesRouter)
+        this.app.use(this.paths.usuarios, usuariosRouter)
+
     }
     middlewares(){
         this.app.use(cors())//Permite solicitudes de origen cruzado
